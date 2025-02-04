@@ -1,6 +1,0 @@
-configInline:
-  address-pools:
-    - name: single-ip-pool
-      protocol: layer2
-      addresses:
-        - 10.0.1.11/32

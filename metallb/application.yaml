@@ -7,15 +7,23 @@ spec:
   project: default
   source:
     repoURL: https://metallb.github.io/metallb
+    targetRevision: "0.12.1"
     chart: metallb
-    targetRevision: 0.14.9
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        configInline:
+          address-pools:
+            - name: single-ip-pool
+              protocol: layer2
+              addresses:
+                - 10.0.1.11/32
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       prune: true
+      allowEmpty: true
       selfHeal: true
