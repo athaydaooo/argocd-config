@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: controller
-          image: metallb/controller:v0.10.2
+          image: metallb/controller:0.14.9
           args:
             - --log-level=info
             - --port=7472
