@@ -6,23 +6,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://metallb.github.io/metallb
-    targetRevision: "0.14.9"
-    chart: metallb
-    helm:
-      values: |
-        address-pools:
-          - name: single-ip-pool
-            protocol: layer2
-            addresses:
-              - 10.0.1.11/32
+    repoURL: https://github.com/Commexcom/argocd-config.git
+    targetRevision: HEAD
+    path: metallb
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
       prune: true
-      allowEmpty: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
