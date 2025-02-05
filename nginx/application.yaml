@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL:
-    targetRevision: git@github.com:Commexcom/argocd-config.git
+    repoURL: git@github.com:Commexcom/argocd-config.git
+    targetRevision: HEAD
     path: nginx
   destination:
     server: https://kubernetes.default.svc
