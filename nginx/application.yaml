@@ -1,104 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"labels":{"argocd.argoproj.io/instance":"nginx"},"name":"nginx","namespace":"argocd"},"spec":{"destination":{"namespace":"nginx","server":"https://kubernetes.default.svc"},"project":"default","source":{"chart":"nginx","repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"latest"},"syncPolicy":{"automated":{"prune":true,"selfHeal":true}}}}
-  creationTimestamp: "2025-02-04T20:37:40Z"
-  generation: 14
-  labels:
-    argocd.argoproj.io/instance: nginx
-  name: nginx
+  name: nginx-ingress
   namespace: argocd
-  resourceVersion: "293661"
-  uid: 834a2870-6976-4f8e-87a1-11f5577ff325
 spec:
-  destination:
-    namespace: nginx
-    server: https://kubernetes.default.svc
   project: default
   source:
-    chart: nginx
+    repoURL:
+    targetRevision: git@github.com:Commexcom/argocd-config.git
     path: nginx
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: latest
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ingress-nginx
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-status:
-  conditions:
-  - lastTransitionTime: "2025-02-04T20:37:40Z"
-    message: 'Failed to load target state: failed to generate manifest for source
-      1 of 1: rpc error: code = Unknown desc = invalid revision ''latest'': improper
-      constraint: latest'
-    type: ComparisonError
-  controllerNamespace: argocd
-  health:
-    lastTransitionTime: "2025-02-04T20:37:40Z"
-    status: Healthy
-  history:
-  - deployStartedAt: "2025-02-04T20:37:40Z"
-    deployedAt: "2025-02-04T20:37:40Z"
-    id: 0
-    initiatedBy:
-      automated: true
-    revision: c14e0ea0c6c2dfe19c2ed7e7e74ba3112990c952
-    source:
-      path: nginx
-      repoURL: https://github.com/Commexcom/argocd-config.git
-      targetRevision: HEAD
-  operationState:
-    finishedAt: "2025-02-04T20:37:40Z"
-    message: successfully synced (all tasks run)
-    operation:
-      initiatedBy:
-        automated: true
-      retry:
-        limit: 5
-      sync:
-        revision: c14e0ea0c6c2dfe19c2ed7e7e74ba3112990c952
-    phase: Succeeded
-    startedAt: "2025-02-04T20:37:40Z"
-    syncResult:
-      resources:
-      - group: argoproj.io
-        hookPhase: Running
-        kind: Application
-        message: 'application.argoproj.io/nginx configured. Warning: resource applications/nginx
-          is missing the kubectl.kubernetes.io/last-applied-configuration annotation
-          which is required by  apply.  apply should only be used on resources created
-          declaratively by either  create --save-config or  apply. The missing annotation
-          will be patched automatically.'
-        name: nginx
-        namespace: argocd
-        status: Synced
-        syncPhase: Sync
-        version: v1alpha1
-      revision: c14e0ea0c6c2dfe19c2ed7e7e74ba3112990c952
-      source:
-        path: nginx
-        repoURL: https://github.com/Commexcom/argocd-config.git
-        targetRevision: HEAD
-  reconciledAt: "2025-02-04T20:41:48Z"
-  resources:
-  - group: argoproj.io
-    kind: Application
-    name: nginx
-    namespace: argocd
-    requiresPruning: true
-    status: Unknown
-    version: v1alpha1
-  sourceHydrator: {}
-  summary: {}
-  sync:
-    comparedTo:
-      destination:
-        namespace: nginx
-        server: https://kubernetes.default.svc
-      source:
-        chart: nginx
-        path: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: latest
-    status: Unknown
