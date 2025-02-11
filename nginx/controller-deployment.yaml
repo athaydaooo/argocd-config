@@ -4,7 +4,6 @@ metadata:
   annotations:
     deployment.kubernetes.io/revision: "1"
   creationTimestamp: "2025-02-05T13:00:56Z"
-  generation: 1
   labels:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
