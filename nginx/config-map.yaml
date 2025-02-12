@@ -4,7 +4,6 @@ metadata:
   name: nginx-configuration
   namespace: ingress-nginx
 data:
-  bind-address: "0.0.0.0"
   server-snippet: |
     if ($host = "") {
         return 444;
