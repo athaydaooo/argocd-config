@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ingress-restriction
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: ingress-nginx # Alvo do Ingress Controller NGINX
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector: {} # Permite o tráfego de qualquer pod dentro do cluster
+      ports:
+        - protocol: TCP
+          port: 443 # Porta HTTPS
+  egress:
+    - to:
+        - podSelector: {} # Permite o tráfego para qualquer pod dentro do cluster
+      ports:
+        - protocol: TCP
+          port: 443
