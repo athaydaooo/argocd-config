@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: ingress-restriction
-  namespace: default
+  namespace: ingress-nginx
 spec:
   podSelector:
     matchLabels:
