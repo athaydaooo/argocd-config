@@ -2,6 +2,9 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+addressPool:
+  - "10.0.1.45/32"
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -223,10 +226,11 @@ controller:
     # nobody
     runAsUser: 65534
     fsGroup: 65534
-  resources: {}
+  resources:
+    {}
     # limits:
-      # cpu: 100m
-      # memory: 100Mi
+    # cpu: 100m
+    # memory: 100Mi
   nodeSelector: {}
   tolerations: []
   priorityClassName: ""
@@ -295,10 +299,11 @@ speaker:
   ## By default secretName: {{ "metallb.fullname" }}-memberlist
   ##
   # secretName:
-  resources: {}
+  resources:
+    {}
     # limits:
-      # cpu: 100m
-      # memory: 100Mi
+    # cpu: 100m
+    # memory: 100Mi
   nodeSelector: {}
   tolerations: []
   priorityClassName: ""
@@ -339,7 +344,6 @@ speaker:
     # if set, enables a rbac proxy sidecar container on the speaker to
     # expose the frr metrics via tls.
     # secureMetricsPort: 9121
-
 
   reloader:
     resources: {}
