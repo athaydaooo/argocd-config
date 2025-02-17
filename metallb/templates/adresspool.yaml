@@ -4,8 +4,7 @@ metadata:
   name: default-pool
   namespace: metallb-system
 spec:
-  addresses:
-    - {{ .Values.adresses }}
+  addresses: {{ .Values.adresses }}
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
