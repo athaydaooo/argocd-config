@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: git@github.com:Commexcom/argocd-config.git
-    targetRevision: main
+    targetRevision: stage
     path: nginx
   destination:
     server: https://kubernetes.default.svc
