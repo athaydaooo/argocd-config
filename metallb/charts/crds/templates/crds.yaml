@@ -332,17 +332,6 @@ metadata:
     controller-gen.kubebuilder.io/version: v0.16.3
   name: bgppeers.metallb.io
 spec:
-  conversion:
-    strategy: Webhook
-    webhook:
-      clientConfig:
-        service:
-          name: metallb-webhook-service
-          namespace: { { .Release.Namespace } }
-          path: /convert
-      conversionReviewVersions:
-        - v1beta1
-        - v1beta2
   group: metallb.io
   names:
     kind: BGPPeer
