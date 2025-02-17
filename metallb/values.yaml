@@ -2,8 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-addressPool:
-  - "10.0.1.45/32"
+addressPool: "10.0.1.45/32"
 
 imagePullSecrets: []
 nameOverride: ""
