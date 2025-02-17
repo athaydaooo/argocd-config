@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: devops.guaruja.sp.gov.br
+    - host: stage-devops.guaruja.sp.gov.br
       http:
         paths:
           - path: /
@@ -22,5 +22,5 @@ spec:
                   number: 443
   tls:
     - hosts:
-        - devops.guaruja.sp.gov.br
+        - stage-devops.guaruja.sp.gov.br
       secretName: guarujaspgovbr-tls
